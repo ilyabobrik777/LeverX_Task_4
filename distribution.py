@@ -1,18 +1,18 @@
 class Distribution:
-    def __init__(self, room, students):
-        self.room = room
-        self.students = students
+    def __init__(self, rooms_info, students_info):
+        self.rooms_info = rooms_info
+        self.students_info = students_info
 
     def student_distribution(self):
         rooms_dict = {}
         rooms_list = []
-        for room_info in self.room:
+        for room in self.rooms_info:
             students_list = []
-            for student_info in self.students:
-                if student_info['room'] == room_info['id']:
-                    students_list.append(student_info['name'])
+            for student in self.students_info:
+                if student['room'] == room['id']:
+                    students_list.append(student['name'])
                 rooms_dict = {
-                    'room': room_info['id'],
+                    'room': room['id'],
                     'population': students_list
                 }
         rooms_list.append(rooms_dict)
